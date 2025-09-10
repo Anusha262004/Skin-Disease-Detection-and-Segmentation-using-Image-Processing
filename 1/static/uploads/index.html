@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Jain Institute Technology,Davanagere</h1>
+    <h1>Department of computer science and Engineering</h1>
+    <h1>CG Project : Skin Disease Prediction </h1>
+    <h1>Under  the Guidance : Assistant Professor MS. Archana K N   </h1>
+    <h1>By
+        Anusha N and
+        Anjan Kumar TG</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="file">Upload an image for skin cancer detection processing</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Upload Image</button>
+    </form>
+    {% if original %}
+    <div class="results">
+        <div>
+            <h2>Original Image</h2>
+            <img src="{{ original }}" alt="Original Image">
+        </div>
+        <div>
+            <h2>Grayscale Image</h2>
+            <img src="{{ grayscale }}" alt="Grayscale Image">
+        </div>
+        <div>
+            <h2>Noise Reduction</h2>
+            <img src="{{ noise_reduction }}" alt="Noise Reduction">
+        </div>
+        <div>
+            <h2>Contrast Enhancement</h2>
+            <img src="{{ contrast_enhancement }}" alt="Contrast Enhancement">
+        </div>
+        <div>
+            <h2>Edge Detection</h2>
+            <img src="{{ edges }}" alt="Edge Detection">
+        </div>
+        <div>
+            <h2>Segmentation</h2>
+            <img src="{{ segmentation }}" alt="Segmentation">
+        </div>
+        <h3>The given image has the disease: "{{ disease }}"</h3>
+    </div>
+    {% endif %}
+</body>
+</html>
